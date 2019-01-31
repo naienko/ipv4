@@ -13,8 +13,17 @@ const getIPAddresses = accountArray => {
     return ipAddresses;
 };
 
-console.log(getIPAddresses(accounts));
+// console.log(getIPAddresses(accounts));
 
+const onlyIPAddresses = accounts.map(
+    account => {
+        return account.last_login.ip4
+    }
+);
+
+// const onlyIPAddresses = accounts.map( account => account.last_login.ip4 );
+
+console.log(onlyIPAddresses);
 /*
     Define a function that will return an array that contains
     all of the values of a particular key on each object in
@@ -48,40 +57,6 @@ console.log(getKeyValues(accounts, "email"));
         etc...
     }
 */
-
-// const emailSites = (accountArray) => {
-//     let emailList = [];
-//     accountArray.forEach(element => {
-//         const currentKey = element.email;
-//         emailList.push(currentKey);
-//     });
-//     let sortedEmail = {};
-//     let yahooNum = 0;
-//     let outlookNum = 0;
-//     let hotmailNum = 0;
-//     let gmailNum = 0;
-//     emailList.filter(
-//         filterMe = element => {
-//             element.split("@");
-//             switch (element[1]) {
-//                 case "yahoo.com":
-//                     yahooNum++;
-//                     break;
-//                     case "hotmail.com":
-//                     hotmailNum++;
-//                     break;
-//                     case "outlook.com":
-//                     outlookNum++;
-//                     break;
-//                     case "gmail.com":
-//                     gmailNum++;
-//                     break;
-//                     default:
-//                     break;
-//             };
-//         }
-//     );
-// };
 
 // hash table lookup
 
@@ -118,4 +93,13 @@ const femaleAccounts = accountsArray => {
     return girlUsers;
 };
 
-console.log(femaleAccounts(accounts));
+// console.log(femaleAccounts(accounts));
+
+const girlUsers = accounts.filter( 
+    account => { 
+        return account.gender === "female" 
+    });
+
+//const girlUsers = accounts.filter( account => account.gender === "female" );
+
+console.log(girlUsers);
